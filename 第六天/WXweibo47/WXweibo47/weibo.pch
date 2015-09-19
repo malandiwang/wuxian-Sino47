@@ -1,0 +1,81 @@
+//
+//  weibo.pch
+//  WXweibo47
+//
+//  Created by imac on 15/9/11.
+//  Copyright (c) 2015年 imac. All rights reserved.
+//
+
+#ifndef WXweibo47_weibo_pch
+#define WXweibo47_weibo_pch
+
+/**将下面注释取消，并定义自己的app key，app secret以及授权跳转地址uri
+ 此demo即可编译运行**/
+
+#define kAppKey             @"3945430416"
+#define kAppSecret          @"43a05d2da765bd1bd84f595ecbb55719"
+#define kAppRedirectURI     @"http://www.iphonetrain.com"
+
+#ifndef kAppKey
+#error
+#endif
+
+#ifndef kAppSecret
+#error
+#endif
+
+#ifndef kAppRedirectURI
+#error
+#endif
+
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+//屏幕的宽度和高度
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+
+//一定要注意顺序，SinaWeibo.h要在AppDelegate.h前面，因为AppDelegate.m中需要使用SinaWeibo.h，否则会报错，（注意）
+#import "UIViewExt.h"
+#import "SinaWeibo.h"
+#import "AppDelegate.h"
+#import "ThemeManager.h"
+#import "ThemeImageView.h"
+#import "ThemeButton.h"
+#import "ThemeLabel.h"
+#import "AFNetworking.h"
+#import "DataService.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "WXLabel.h"
+
+
+//发送全局通知的标示符
+#define kChangeThemeName @"ChangeThemeName"
+//主题管家数据持久化标示
+#define kThemeName @"ThemeName"
+
+//本地保存的动画名
+#define kDrawLeftType @"DrawLeftType"
+#define kDrawRightType @"DrawRightType"
+#define kDrawAnimationType @"DrawAnimationType"
+
+//大小图模式本地保存的key
+#define kImageScale @"ImageScale"
+//切换大小图的宏定义
+#define kWeiboViewImageHeight ([[[NSUserDefaults standardUserDefaults] objectForKey:kImageScale] integerValue] ==  0 ? 80 : 160)
+
+
+//-------------------------接口-----------------------//
+//获取当前登录用户及其所关注用户的最新微博(注意后面加.json)
+#define home_timeline @"statuses/home_timeline.json"
+//获取某个用户的各种消息未读数
+#define unread_count @"remind/unread_count.json"
+
+
+#endif
